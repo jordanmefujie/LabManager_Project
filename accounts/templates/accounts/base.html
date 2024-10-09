@@ -1,0 +1,139 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+{% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}LabManager{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'accounts/css/style_links.css' %}">
+    <!-- Add FontAwesome for icons -->
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+
+    <script>
+        function navigateTo(url) {
+            window.location.href = url;
+        }
+
+	// Navigate to the specified URL
+        function navigateTo(url) {
+            window.location.href = url;
+        }
+
+        // Smooth scroll for navigation links
+        document.addEventListener('DOMContentLoaded', function () {
+            const navLinks = document.querySelectorAll('.nav-links a');
+            navLinks.forEach(link => {
+                link.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href').substring(1);
+                    document.getElementById(targetId).scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                });
+            });
+        });
+
+        // Highlight navigation link on scroll
+        window.addEventListener('scroll', function () {
+            const sections = document.querySelectorAll('section');
+            const navLinks = document.querySelectorAll('.nav-links a');
+            let currentSection = '';
+
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                if (pageYOffset >= sectionTop - 60) {
+                    currentSection = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href').substring(1) === currentSection) {
+                    link.classList.add('active');
+                }
+            });
+        });
+
+        // Show/Hide scroll to top button
+        window.addEventListener('scroll', function () {
+            const scrollToTopButton = document.getElementById('scroll-to-top');
+            if (window.scrollY > 200) {
+                scrollToTopButton.style.display = 'block';
+            } else {
+                scrollToTopButton.style.display = 'none';
+            }
+        });
+
+        // Scroll to top functionality
+        function scrollToTop() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        }
+
+        // Toggle menu for mobile views
+        function toggleMenu() {
+            const nav = document.querySelector('.nav-links');
+            nav.classList.toggle('show');
+        }
+    </script>
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <!-- Logo -->
+            <div class="logo-container">
+                <img src="{% static 'img/logo_1.jpg' %}" alt="LabManager Logo" class="logo">
+                <h2 class="logo-text">LabManager</h2>
+            </div>
+
+            <!-- Navigation Links -->
+            <ul class="nav-links">
+                <li><a href="{% url 'home' %}">Home</a></li>
+                <li><a href="{% url 'about' %}">About Us</a></li>
+                <li><a href="{% url 'services' %}">Services</a></li>
+                <li><a href="{% url 'contact' %}">Contact Us</a></li>
+		<li><a href="{% url 'profile' %}">My Profile<a></li>
+            </ul>
+
+            <!-- Buttons -->
+            <div class="button-container">
+                <button class="login" onclick="navigateTo('{% url 'login' %}')">Login</button>
+                <button class="register" onclick="navigateTo('{% url 'register' %}')">Register</button>
+            </div>
+		<!-- Mobile Menu Icon -->
+            <div class="menu-icon" onclick="toggleMenu()">
+                <i class="fas fa-bars"></i>
+            </div>
+        </nav>
+        <div class="hero-section">
+            <h3>Welcome To My <em><i>Wonderful</i></em> LabManager</h3>
+        </div>
+    </header>
+	<!-- Scroll to Top Button -->
+    <button id="scroll-to-top" onclick="scrollToTop()">⬆</button>
+
+    <!-- Content Block for Page-Specific Content -->
+    <main>
+        {% block content %}
+        {% endblock %}
+    </main>
+	<!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2024 LabManager. All rights reserved.</p>
+            <div class="social-media">
+                <a href="https://www.whatsapp.com"><img src="{% static 'img/whatsapp.png' %}" alt="WhatsApp"></a>
+                <a href="https://www.facebook.com"><img src="{% static 'img/facebook.png' %}" alt="Facebook"></a>
+                <a href="https://www.github.com"><img src="{% static 'img/github.png' %}" alt="GitHub"></a>
+                <a href="https://www.linkedin.com"><img src="{% static 'img/linkedin.png' %}" alt="LinkedIn"></a>
+                <a href="https://www.twitter.com"><img src="{% static 'img/x.png' %}" alt="X"></a>
+                <a href="https://www.instagram.com"><img src="{% static 'img/instagram.png' %}" alt="Instagram"></a>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>

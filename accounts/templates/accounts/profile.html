@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	{% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile</title>
+    <link rel="stylesheet" href="{% static 'NavBar.css' %}">
+    <link rel="stylesheet" href="{% static 'accounts/css/profile.css' %}">
+</head>
+
+<body>
+    <div class="container">
+        <h2>Your Profile</h2>
+        <form method="POST" id="profile-form">
+            {% csrf_token %}
+            {{ u_form.as_p }}
+            {{ p_form.as_p }}
+            <button type="submit" class="btn-update">Update</button>
+        </form>
+    </div>
+
+    <script src="{% static 'accounts/js/script.js' %}"></script>
+</body>
+
+</html>
