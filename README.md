@@ -83,3 +83,4 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 ## Contact
 
 For any questions or inquiries, please contact [your email] or create an issue on the GitHub repository.
+# LabManager_Project
