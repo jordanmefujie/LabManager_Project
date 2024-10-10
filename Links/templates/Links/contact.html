@@ -1,0 +1,21 @@
+<!--contact.html -->
+{% extends 'base.html' %}
+{% load static %}  <!-- Load the static template tag library -->
+
+{% block title %}
+    About Us - LabManager
+{% endblock %}
+
+{% block content %}
+
+    <div class="logo-container">
+        <img src="{% static 'img/logo_1.jpg' %}">
+        <h2 class="logo-text">LabManager</h2>
+    </div>
+    <div class="main">
+        <h1>About Us</h1>
+        <p>LabManager is a cutting-edge platform that helps you manage your laboratory operations with ease.</p>
+        <p>Our mission is to make laboratory management seamless, efficient, and more organized than ever before.</p>
+    </div>
+	<!-- Footer -->
+{% endblock %}

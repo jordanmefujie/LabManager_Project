@@ -1,0 +1,149 @@
+<!-- register page -->
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LabManager</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 2;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 150vh;
+            background-color: #f2f2f2;
+        }
+        .container {
+            background-color: white;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 300px;
+        }
+        .container h2 {
+            margin-bottom: 20px;
+        }
+        .container input[type="text"],
+        .container input[type="email"],
+        .container input[type="password"],
+        .container input[type="date"],
+        .container input[type="submit"] {
+            width: 100%;
+            padding: 10px;
+            margin: 2px 0;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            background-color: #e6f7ff;
+            cursor: pointer;
+        }
+        .container input[type="submit"] {
+            background-color: #007bff;
+            color: white;
+            cursor: pointer;
+        }
+        .container input[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+        .container input[type="radio"],
+        .container input[type="checkbox"] {
+            margin-right: 10px;
+            cursor: pointer;
+        }
+        .container label {
+            margin-bottom: 5px;
+            display: block;
+        }
+
+        @media (max-width: 600px) {
+            .container {
+                width: 100%; /* Full width on smaller screens */
+                margin: 10px; /* Added margin for spacing */
+            }
+        }
+
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!--logo-->
+    <div class="logo-container">
+        <div style="display: flex; align-items: center; gap: 10px;">
+            <img src="../img/logo1.jpg" alt="LabManager Logo" class="logo" style="width: 50px; h
+            <h2 class="logo-text" style="font-family: Arial, sans-serif; font-size: 24px; color:
+        </div>
+    </div>
+        <h2>Register With Us</h2>
+        <form action="/submit_registration" method="POST">
+            <label for="fname">First Name</label>
+            <input type="text" id="fname" name="firstname" required>
+
+            <label for="lname">Last Name</label>
+            <input type="text" id="lname" name="lastname" required>
+
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="password">Password</label>
+            <input type="password" id="password" name="password" required>
+
+            <label for="repeat_password">Repeat Password</label>
+            <input type="password" id="repeat_password" name="repeat_password" required>
+
+            <label for="dob">Date of Birth</label>
+            <input type="date" id="dob" name="dob" required>
+
+            <label>Gender</label>
+            <input type="radio" id="male" name="gender" value="male" required>
+            <label for="male" style="display: inline;">Male</label>
+            <input type="radio" id="female" name="gender" value="female" required>
+            <label for="female" style="display: inline;">Female</label>
+            <input type="radio" id="other" name="gender" value="other" required>
+            <label for="other" style="display: inline;">Other</label><br><br>
+            <label for="lname">Staff ID</label>
+            <input type="text" id="Staff_id" name="Staff ID" required><br><br>
+
+            <label><em><h3>Hobbies</h3></em></label>
+            <input type="checkbox" id="hobby1" name="hobbies" value="reading">
+            <label for="hobby1" style="display: inline;">Reading</label>
+            <input type="checkbox" id="hobby2" name="hobbies" value="travelling">
+            <label for="hobby2" style="display: inline;">Travelling</label>
+            <input type="checkbox" id="hobby3" name="hobbies" value="sports">
+            <label for="hobby3" style="display: inline;">Sports</label>
+
+            <input type="submit" value="Register">
+        </form>
+    </div>
+
+    <script>
+        function validateForm(event) {
+            event.preventDefault();
+            const password = document.getElementById('password').value;
+            const repeatPassword = document.getElementById('repeat_password').value;
+            const email = document.getElementById('email').value;
+            const emailPattern = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
+
+            if (password !== repeatPassword) {
+                alert("Passwords do not match");
+                return false;
+            }
+
+            if (!email.match(emailPattern)) {
+                alert("Invalid email format");
+                return false;
+            }
+
+            // Optionally, add more validation here...
+
+            // If validation passes, submit the form
+            document.getElementById('register-form').submit();
+        }
+    </script>
+
+</body>
+</html>

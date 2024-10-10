@@ -1,0 +1,171 @@
+/* Links/css/Links.css */
+
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+/* Navbar Styles */
+.navbar {
+    background-color: #2c3e50;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+}
+
+.logo {
+    width: 50px;
+    height: auto;
+    margin-right: 15px;
+}
+
+.logo-text {
+    color: white;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.Navlinks {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+}
+
+.Navlinks li {
+    margin: 0 15px;
+}
+
+.Navlinks a {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.Navlinks a:hover {
+    color: #1abc9c;
+}
+
+/* Button Styles */
+.button {
+    display: flex;
+    align-items: center;
+}
+
+.button .login, .button .register {
+    background-color: #1abc9c;
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    margin-left: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.button .login:hover, .button .register:hover {
+    background-color: #16a085;
+}
+
+/* Hero Section Styles */
+.hero-section {
+    background-image: url('../img/hero-bg.jpg');
+    background-size: cover;
+    background-position: center;
+    color: white;
+    text-align: center;
+    padding: 100px 20px;
+}
+
+.hero-section h3 {
+    font-size: 36px;
+    margin: 0;
+}
+
+/* Main Content Styles */
+main {
+    padding: 20px;
+    background-color: white;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    margin: 20px auto;
+    max-width: 1200px;
+}
+
+/* Footer Styles */
+footer {
+    background-color: #2c3e50;
+    color: white;
+    text-align: center;
+    padding: 20px 0;
+    margin-top: 20px;
+}
+
+.footer-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.footer-content p {
+    margin: 5px 0;
+}
+
+.social-media {
+    margin-top: 15px;
+}
+
+.social-media a {
+    margin: 0 10px;
+}
+
+.social-media img {
+    width: 30px;
+    height: auto;
+    transition: transform 0.3s;
+}
+
+.social-media img:hover {
+    transform: scale(1.2);
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .Navlinks {
+        flex-direction: column;
+        margin-top: 10px;
+    }
+
+    .Navlinks li {
+        margin: 5px 0;
+    }
+
+    .hero-section {
+        padding: 60px 20px;
+    }
+
+    .hero-section h3 {
+        font-size: 28px;
+    }
+
+    .button .login, .button .register {
+        margin-left: 0;
+        margin-top: 10px;
+        width: 100%;
+    }
+}

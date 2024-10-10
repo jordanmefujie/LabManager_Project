@@ -1,0 +1,48 @@
+<!--about.html -->
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+    About Us - LabManager
+{% endblock %}
+
+{% block content %}
+<div class="logo-container">
+     <img src="{% static 'img/logo_1.jpg' %}">
+     <h2 class="logo-text">LabManager</h2>
+</div>
+    <div class="main">
+        <h1>About Us</h1>
+        <p>LabManager is a cutting-edge platform that helps you manage your laboratory operations with ease.</p>
+        <p>Our mission is to make laboratory management seamless, efficient, and more organized than ever before.</p>
+	<h2>Our Vision</h2>
+        <p>We envision a future where laboratory operations are automated, data-driven, and accessible from anywhere. LabManager is built with this future in mind, providing a comprehensive platform that empowers laboratories to stay ahead of the curve.</p>
+
+        <h2>Key Features</h2>
+        <ul>
+            <li><strong>Equipment Management:</strong> Keep track of all laboratory equipment, schedule maintenance, and ensure everything is running smoothly.</li>
+            <li><strong>Experiment Tracking:</strong> Document and monitor all ongoing experiments, ensuring accuracy and compliance with protocols.</li>
+            <li><strong>User Management:</strong> Manage users, their roles, and permissions to ensure secure and efficient collaboration.</li>
+            <li><strong>Real-time Collaboration:</strong> Enable team members to work together in real-time, improving productivity and reducing errors.</li>
+            <li><strong>Reports and Analytics:</strong> Generate detailed reports and gain insights into laboratory performance, helping you make informed decisions.</li>
+        </ul>
+
+        <h2>Why Choose LabManager?</h2>
+        <p>LabManager is designed with the needs of modern laboratories in mind. Here are just a few reasons why laboratories around the world trust LabManager:</p>
+        <ul>
+            <li>Intuitive User Interface: Easy to use and navigate, even for users who aren’t tech-savvy.</li>
+            <li>Customizable Workflows: Adapt the platform to suit the specific needs of your laboratory.</li>
+            <li>Data Security: We prioritize the security of your data with advanced encryption and access control mechanisms.</li>
+            <li>24/7 Support: Our dedicated support team is always ready to assist you, ensuring that your lab runs smoothly.</li>
+        </ul>
+
+        <h2>Join the LabManager Community</h2>
+        <p>We’re more than just a software platform—we’re a community of lab professionals dedicated to advancing science through innovation. Join us in revolutionizing laboratory management and take your lab to the next level with LabManager.</p>
+
+        <p>For more information, feel free to <a href="{% url 'contact' %}">contact us</a>.</p>
+    </div>
+
+    </div>
+	<!-- Footer -->
+    
+{% endblock %}
