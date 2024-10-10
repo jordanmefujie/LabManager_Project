@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Equipment</title>
+    <link rel="stylesheet" href="{% static 'labmanagement/css/equipment.css' %}">
+</head>
+<body>
+    <header>
+        <h1>Manage Equipment</h1>
+    </header>
+    <section class="content">
+        <div class="card">
+            <h2>View Equipment</h2>
+            <p>List and manage all lab equipment.</p>
+        </div>
+        <div class="card">
+            <h2>Maintain Equipment</h2>
+            <p>Track and schedule equipment maintenance.</p>
+        </div>
+    </section>
+        <ul>
+        {% for item in equipment %}
+        <li><a href="{% url 'equipment_detail' item.pk %}">{{ item.name }}</a> - {{ item.status }}</li>
+        {% endfor %}
+    </ul>
+
+</body>
+</html>
+

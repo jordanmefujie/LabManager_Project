@@ -1,0 +1,175 @@
+/* dashboard.css */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f9;
+}
+
+header {
+    background-color: #2a9d8f;
+    color: white;
+    padding: 10px 0;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+}
+
+.logo {
+    height: 50px;
+    margin-right: 10px;
+}
+
+.logo-text {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.Navlinks {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+.Navlinks li {
+    display: inline;
+}
+
+.Navlinks a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: 500;
+}
+
+.Navlinks a:hover {
+    color: #e9c46a;
+}
+
+button.login, button.Register {
+    background-color: #264653;
+    border: none;
+    padding: 10px 20px;
+    color: white;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+button.login:hover, button.Register:hover {
+    background-color: #1e5552;
+}
+
+/* dashboard.css */
+main {
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 0 20px;
+}
+
+.dashboard-overview {
+    text-align: center;
+}
+
+.dashboard-overview h1 {
+    font-size: 36px;
+    margin-bottom: 20px;
+}
+
+.dashboard-overview p {
+    font-size: 18px;
+    margin-bottom: 30px;
+}
+
+.dashboard-cards {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.card {
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    text-align: center;
+    flex: 1 1 calc(33% - 40px);
+    max-width: calc(33% - 40px);
+}
+
+.card h3 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.card p {
+    font-size: 16px;
+    margin-bottom: 20px;
+}
+
+.card .btn {
+    background-color: #2a9d8f;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.card .btn:hover {
+    background-color: #21867a;
+}
+
+.quick-links {
+    margin-top: 50px;
+    text-align: center;
+}
+
+.quick-links h2 {
+    font-size: 28px;
+    margin-bottom: 20px;
+}
+
+.quick-links ul {
+    list-style: none;
+    padding: 0;
+}
+
+.quick-links ul li {
+    margin-bottom: 10px;
+}
+
+.quick-links ul li a {
+    color: #2a9d8f;
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.quick-links ul li a:hover {
+    text-decoration: underline;
+}
+
+footer {
+    background-color: #2a9d8f;
+    color: white;
+    text-align: center;
+    padding: 20px 0;
+    margin-top: 50px;
+}
+
+footer p {
+    margin: 0;
+}

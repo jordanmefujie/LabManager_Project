@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Home</title>
+    <link rel="stylesheet" href="{% static 'NavBar.css' %}">
+    <link rel="stylesheet" href="{% static 'dashboard/css/dashboard.css' %}">
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="logo-container">
+                <img src="{% static 'img/logo_1.jpg' %}" alt="LabManager Logo" class="logo">
+                <h2 class="logo-text">LabManager</h2>
+            </div>
+            <ul class="Navlinks">
+                <li><a href="{% url 'dashboard-home' %}">Dashboard</a></li>
+                <li><a href="{% url 'dashboard-services' %}">Services</a></li>
+                <li><a href="{% url 'dashboard-contact' %}">Contact Us</a></li>
+                <li><a href="{% url 'dashboard-about' %}">About Us</a></li>
+                <li><a href="{% url 'dashboard' %}">Dashboard Overview</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="dashboard-overview">
+            <h1>Welcome to LabManager Dashboard</h1>
+            <p>Your one-stop solution for managing all lab-related activities.</p>
+
+            <div class="dashboard-cards">
+                <div class="card">
+                    <h3>Experiments</h3>
+                    <p>View, manage, and analyze your experiments</p>
+                    <a href="{% url 'experiments' %}" class="btn">Manage Experiments</a>
+                </div>
+                <div class="card">
+                    <h3>Equipment</h3>
+                    <p>Track and maintain lab equipment</p>
+<a href="{% url 'equipment' %}" class="btn">Manage Equipment</a>
+                </div>
+                <div class="card">
+                    <h3>Reports</h3>
+                    <p>Generate and view lab reports and analytics</p>
+                    <a href="{% url 'dashboard-reports' %}" class="btn">View Reports</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="quick-links">
+            <h2>Quick Links</h2>
+            <ul>
+                <li><a href="{% url 'dashboard-settings' %}">Account Settings</a></li>
+                <li><a href="{% url 'dashboard-labmanagement' %}">Lab Management</a></li>
+                <li><a href="{% url 'dashboard' %}">Dashboard Overview</a></li>
+            </ul>
+        </section>
+    </main>
+
+    <footer>
+	<div class="social-media">
+            <a href="https://www.whatsapp.com"><img src="{% static 'img/whatsapp.png' %}" alt="WhatsApp"></a>
+            <a href="https://www.facebook.com"><img src="{% static 'img/facebook.png' %}" alt="Facebook"></a>
+            <a href="https://www.github.com"><img src="{% static 'img/github.png' %}" alt="GitHub"></a>
+            <a href="https://www.linkedin.com"><img src="{% static 'img/linkedin.png' %}" alt="LinkedIn"></a>
+            <a href="https://www.twitter.com"><img src="{% static 'img/twitter.png' %}" alt="X"></a>
+            <a href="https://www.instagram.com"><img src="{% static 'img/instagram.png' %}" alt="Instagram"></a>
+        </div>
+        <p>&copy; 2024 LabManager. All rights reserved.</p>
+    </footer>
+</body>
+</html>

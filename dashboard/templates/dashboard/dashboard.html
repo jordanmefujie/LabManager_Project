@@ -1,0 +1,78 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dashboard</title>
+<link rel="stylesheet" href="{% static 'NavBar.css' %}">
+<link rel="stylesheet" href="{% static 'dashboard/css/style.css' %}">
+</head>
+<body>
+	<header>
+		<nav class="navbar">
+		<!-- Logo -->
+		<div class="logo-container">
+			<img src="{% static 'img/logo_1.jpg' %}" alt="Logo" class="logo">
+			<h2 class="logo-text">LabManager</h2>
+		</div>
+		<!-- Links -->
+		<ul class="Navlinks">
+			<a href="{% url 'home' %}"><li>Home</li></a>
+			<a href="{% url 'about' %}"><li>About Us</li></a>
+			<a href="{% url 'services' %}"><li>Services</li></a>
+			<a href="{% url 'contact' %}"><li>Contact Us</li></a>
+			<a href="{% url 'dashboard' %}"><li>Dashboard</li></a>
+		</ul>
+		<!-- Buttons -->
+		<div class="button">
+		<button class="login" onclick="navigateTo('{% url 'logout' %}')">Logout</button>
+		</div>
+																</nav>
+																<section class="hero-section">
+																<h3>Welcome to Your <em><i>Dashboard</i></em>, {{ user.username }}!</h3>
+	</section>
+</header>
+	<main>
+		<section class="dashboard-content">
+		<h2>Your Dashboard</h2>
+			<p>Manage your laboratory operations and settings from here.</p>
+			<div class="dashboard-widgets">
+				<!-- Example Widgets -->
+				<div class="widget">
+				<h3>Recent Activities</h3>
+				<p>No recent activities.</p>
+			</div>
+			<div class="widget">
+			<h3>Notifications</h3>
+			<p>You have no new notifications.</p>
+		</div>
+		<div class="widget">
+		<h3>Lab Equipment Status</h3>
+		<p>All systems operational.</p>
+		</div>
+		</div>
+		</section>
+		</main>
+		<footer>
+		<div class="footer-content">
+            <p>&copy; 2024 LabManager. All rights reserved.</p>
+            <div class="social-media">
+                <a href="https://www.whatsapp.com"><img src="{% static 'img/whatsapp.png' %}" alt="WhatsApp"></a>
+                <a href="https://www.facebook.com"><img src="{% static 'img/facebook.png' %}" alt="Facebook"></a>
+                <a href="https://www.github.com"><img src="{% static 'img/github.png' %}" alt="GitHub"></a>
+                <a href="https://www.linkedin.com"><img src="{% static 'img/linkedin.png' %}" alt="LinkedIn"></a>
+                <a href="https://www.twitter.com"><img src="{% static 'img/x.png' %}" alt="X"></a>
+                <a href="https://www.instagram.com"><img src="{% static 'img/instagram.png' %}" alt="Instagram"></a>
+            </div>
+        </div>
+
+		<p>&copy; 2024 LabManager. All rights reserved.</p>
+		</footer>
+		<script>
+		function navigateTo(url) {
+			window.location.href = url;
+			}
+		</script>
+	</body>
+</html>

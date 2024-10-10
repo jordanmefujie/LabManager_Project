@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reports</title>
+    <link rel="stylesheet" href="{% static 'dashboard/css/reports.css' %}">
+</head>
+<body>
+    <header>
+    <div class="logo-container">
+                <img src="{% static 'img/logo_5.jpg' %}" alt="LabManager Logo" class="logo">
+        <h1>Lab Reports</h1>
+</div>
+    </header>
+    <section class="reports">
+        <div class="report-card">
+            <h2>Experiment Reports</h2>
+            <p>View detailed experiment reports to track progress and outcomes.</p>
+	    <img src="{% static 'img/logo_4.jpg' %}" alt="Experiment Image">
+	    <button onclick="location.href='{% url 'experiment_reports' %}'">View Reports</button>
+        </div>
+        <div class="report-card">
+            <h2>Equipment Reports</h2>
+            <p>View maintenance and usage reports of equipment. Get insights into equipment usage, maintenance, and performance</p>
+	    <img src="{% static 'img/logo_4.jpg' %}" alt="Equipment Image">
+	    <button onclick="location.href='{% url 'equipment_reports' %}'">View Reports</button>
+			        </div>
+        </div>
+    </section>
+	<footer>
+        <div class="footer-content">
+            <p>&copy; 2024 LabManager. All rights reserved.</p>
+            <div class="social-media">
+                <a href="https://www.whatsapp.com"><img src="{% static 'img/whatsapp.png' %}" alt="WhatsApp"></a>
+                <a href="https://www.facebook.com"><img src="{% static 'img/facebook.png' %}" alt="Facebook"></a>
+                <a href="https://www.github.com"><img src="{% static 'img/github.png' %}" alt="GitHub"></a>
+                <a href="https://www.linkedin.com"><img src="{% static 'img/linkedin.png' %}" alt="LinkedIn"></a>
+                <a href="https://www.twitter.com"><img src="{% static 'img/x.png' %}" alt="X"></a>
+                <a href="https://www.instagram.com"><img src="{% static 'img/instagram.png' %}" alt="Instagram"></a>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
