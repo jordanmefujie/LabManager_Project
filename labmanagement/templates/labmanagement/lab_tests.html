@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>Lab Tests</h2>
+<section class="report_list">
+<li><a href="{% url 'patient_reports' %}">Patient's Reports</a></li>
+<li><a href="{% url 'pending_requests' %}">Awaiting Reports</a></li>
+<!-- <li><a href="{ url 'complete_report' }">Reports Completed</a></li> -->
+<!-- <li><a href="{ url 'complete_report' report.id %}">{ report.title }}</a>Reports Completed</li> -->
+{% for report in reports %}
+   <li><a href="{% url 'complete_report' report.id %}">Complete Report for {{ report.title }}</a></li>
+   <li><a href="{% url 'report_detail' report.pk %}">{{ report.title }}</a> - {{ report.created_at }}</li>
+{% endfor %}
+
+</section>
+<ul>
+    {% for test in tests %}
+        <li>{{ test.name }} - {{ test.description }}</li>
+    {% endfor %}
+</ul>
+{% endblock %}

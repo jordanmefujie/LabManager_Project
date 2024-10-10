@@ -1,0 +1,28 @@
+{% extends "labmanagement/base.html" %}
+
+{% block content %}
+<div class="test-list-container">
+<h2>Lab Test List</h2>
+<table>
+    <thead>
+        <tr>
+            <th>Test Name</th>
+            <th>Status</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for lab_test in lab_tests %}
+        <tr>
+            <td>{{ lab_test.test_name }}</td>
+            <td>{{ lab_test.get_status_display }}</td>
+            <td>
+                <a href="{% url 'enter_report' lab_test.pk %}">Enter Report</a> |
+                <a href="{% url 'verify_result' lab_test.pk %}">Verify Result</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+</div>
+{% endblock %}

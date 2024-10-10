@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		    <meta charset="UTF-8">
+		        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+			    <title>{{ experiment.title }} Details</title>
+			        <link rel="stylesheet" href="{% static 'labmanagement/css/style.css' %}">
+	</head>
+	<body>
+		    <h2>{{ experiment.title }}</h2>
+		        <p>Description: {{ experiment.description }}</p>
+			    <p>Status: {{ experiment.status }}</p>
+			        <p>Start Date: {{ experiment.start_date }}</p>
+				    <p>End Date: {{ experiment.end_date }}</p>
+	</body>
+</html>

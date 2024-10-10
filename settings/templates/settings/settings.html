@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+	{% load static %}
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>User Settings</title>
+	<link rel="stylesheet" href="{% static 'settings/css/settings.css' %}">
+	</head>
+	<body>
+		    <h2>User Settings</h2>
+		       <form method="POST">
+			{% csrf_token %}
+			{% for pref in preferences %}
+			<label for="{{ pref.preference_name }}">{{ pref.preference_name }}</label>
+			<input type="text" name="{{ pref.preference_name }}" value="{{ pref.preference_value }}">
+			{% endfor %}
+			<button type="submit">Save</button>
+			</form>
+	</body>
+</html>

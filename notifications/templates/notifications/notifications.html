@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	{% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LabManager Notifications</title>
+    <!-- Include your static CSS file -->
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* Notification Bell Styles */
+        .notification-bell-container {
+            position: relative;
+            display: inline-block;
+        }
+
+        .notification-bell {
+            background: none;
+            border: none;
+            cursor: pointer;
+            position: relative;
+        }
+
+        .notification-bell img {
+            width: 30px;
+            height: 30px;
+        }
+
+        .notification-count {
+            position: absolute;
+            top: -5px;
+            right: -5px;
+            background-color: red;
+            color: white;
+            font-size: 12px;
+            padding: 2px 6px;
+            border-radius: 50%;
+            display: none;
+        }
+
+        .notification-dropdown {
+            display: none;
+            position: absolute;
+            right: 0;
+            background-color: white;
+            border: 1px solid #ccc;
+            box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+            width: 300px;
+            max-height: 400px;
+            overflow-y: auto;
+        }
+
+        .notification-dropdown ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .notification-dropdown li {
+            padding: 10px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .notification-dropdown li:hover {
+            background-color: #f9f9f9;
+        }
+    </style>
+</head>
+<body>
+
+<!-- Notification Bell Button -->
+<div class="notification-bell-container">
+    <button class="notification-bell" id="notification-bell">
+        <img src="{% static 'notifications/img/not.png' %}" alt="Notifications">
+        <span id="notification-count" class="notification-count"></span>
+    </button>
+
+    <!-- Dropdown Menu for Notifications -->
+    <div id="notification-dropdown" class="notification-dropdown">
+        <ul id="notification-list">
+            <!-- Notifications will be dynamically inserted here -->
+        </ul>
+    </div>
+</div>
+
+<!-- Include your static JavaScript file -->
+<script src="{% static 'js/notifications.js' %}"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const notificationBell = document.getElementById("notification-bell");
+        const notificationCount = document.getElementById("notification-count");
+        const notificationDropdown = document.getElementById("notification-dropdown");
+        const notificationList = document.getElementById("notification-list");
+
+        // Fetch notifications when the page loads
+        fetchNotifications();
+
+        // Toggle dropdown visibility when bell is clicked
+        notificationBell.addEventListener("click", function () {
+            notificationDropdown.style.display = notificationDropdown.style.display === "none" ? "block" : "none";
+        });
+
+        // Fetch notifications
+        function fetchNotifications() {
+            fetch("/notifications/get/")
+                .then(response => response.json())
+                .then(data => {
+                    notificationList.innerHTML = "";  // Clear the current list
+                    if (data.length > 0) {
+                        notificationCount.style.display = "block";
+                        notificationCount.textContent = data.length;
+                        data.forEach(notification => {
+                            const li = document.createElement("li");
+                            li.textContent = notification.message;
+                            li.addEventListener("click", () => markAsRead(notification.id));
+                            notificationList.appendChild(li);
+                        });
+                    } else {
+                        notificationCount.style.display = "none";
+                        notificationDropdown.style.display = "none";
+                    }
+                });
+        }
+
+        // Mark notification as read
+        function markAsRead(notificationId) {
+            fetch(`/notifications/read/${notificationId}/`, { method: "POST", headers: { 'X-CSRFToken': getCSRFToken() } })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.success) {
+                        fetchNotifications();
+                    }
+                });
+        }
+
+        // Helper function to get CSRF token
+        function getCSRFToken() {
+            const name = "csrftoken";
+            const cookies = document.cookie.split(";").map(cookie => cookie.trim());
+            for (const cookie of cookies) {
+                if (cookie.startsWith(name + "=")) {
+                    return cookie.substring(name.length + 1);
+                }
+            }
+            return null;
+        }
+    });
+</script>
+
+</body>
+</html>

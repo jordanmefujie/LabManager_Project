@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		    <meta charset="UTF-8">
+		        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+			    <title>Home</title>
+			        <link rel="stylesheet" href="{% static 'NavBar.css' %}">
+	</head>
+	<body>
+		    <header>
+			            <nav class="navbar">
+					                <div class="logo-container">
+								                <img src="{% static 'img/logo1.jpg' %}" alt="" class="logo">
+										                <h2 class="logo-text">LabManager</h2>
+												            </div>
+													                <ul class="Navlinks">
+																                <a href="{% url 'home' %}"><li>Home</li></a>
+																		                <a href="{% url 'about' %}"><li>About Us</li></a>
+																				                <a href="{% url 'services' %}"><li>Services</li></a>
+																						                <a href="{% url 'contact' %}"><li>Contact Us</li></a>
+																								            </ul>
+																									                <div class="button">
+																												                <button class="login" onclick="navigateTo('{% url 'login' %}')">Login</button>
+																														                <button class="Register" onclick="navigateTo('{% url 'register' %}')">Register</button>
+																																            </div>
+																																	            </nav>
+																																		            <section class="hero-section">
+																																				                <h3>Welcome To My <em><i>Wonderful</i></em> LabManager</h3>
+																																						        </section>
+																																							    </header>
+	</body>
+</html>

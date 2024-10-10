@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		    <meta charset="UTF-8">
+		        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+			    <title>App Configurations</title>
+			        <link rel="stylesheet" href="{% static 'settings/css/style.css' %}">
+	</head>
+	<body>
+		    <h2>App Configurations</h2>
+		        <form method="POST">
+				        {% csrf_token %}
+					        {% for config in configs %}
+						            <label for="{{ config.config_name }}">{{ config.config_name }}</label>
+							                <input type="text" name="{{ config.config_name }}" value="{{ config.config_value }}">
+									        {% endfor %}
+										        <button type="submit">Save</button>
+											    </form>
+	</body>
+</html>

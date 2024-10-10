@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Equipment</title>
+    <link rel="stylesheet" href="{% static 'labmanagement/css/forms.css' %}">
+</head>
+<body>
+    <header>
+        <h1>Add New Equipment</h1>
+    </header>
+
+    <section class="form-container">
+        <!-- Form for adding new equipment -->
+        <form method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            <!-- Render form fields -->
+		<div>
+    <label for="{{ form.name.id_for_label }}">Name:</label>
+    {{ form.name }}
+</div>
+<div>
+    <label for="{{ form.category.id_for_label }}">Category:</label>
+    {{ form.category }}
+</div>
+<div>
+    <label for="{{ form.maintenance_date.id_for_label }}">Maintenance Date:</label>
+    {{ form.maintenance_date }}
+</div>
+<div>
+    <label for="{{ form.is_available.id_for_label }}">Available:</label>
+    {{ form.is_available }}
+</div>
+
+            {{ form.as_p }}
+
+            <!-- Submit button -->
+            <button type="submit" class="submit-btn">Add Equipment</button>
+        </form>
+    </section>
+
+    <!-- Optional link to go back -->
+    <footer>
+        <a href="{% url 'labmanagement-home' %}" class="back-link">Back to Lab Management</a>
+    </footer>
+</body>
+</html>

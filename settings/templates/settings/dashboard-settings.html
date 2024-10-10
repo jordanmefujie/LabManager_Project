@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Settings</title>
+    <link rel="stylesheet" href="{% static 'settings/css/d_settings.css' %}">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <header>
+        <h1>Account Settings</h1>
+    </header>
+    <section class="settings">
+        <div class="settings-card">
+            <h2>Profile</h2>
+            <p>Update your personal information and preferences.</p>
+        </div>
+        <div class="settings-card">
+            <h2>Security</h2>
+            <p>Manage your password and security settings.</p>
+        </div>
+      <!-- New updates -->
+	<h3>Profile</h3>
+    <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ profile_form.as_p }}
+        <button type="submit" name="profile_update">Update Profile</button>
+    </form>
+    
+    <h3>Security</h3>
+    <form method="POST">
+        {% csrf_token %}
+        {{ password_form.as_p }}
+        <button type="submit" name="password_update">Change Password</button>
+    </form>
+
+    </section>
+</body>
+<script>
+$(document).ready(function() {
+    $('form').on('submit', function(event) {
+        event.preventDefault();
+        var form = $(this);
+        $.ajax({
+            url: form.attr('action'),
+            type: form.attr('method'),
+            data: form.serialize(),
+            success: function(response) {
+                // Handle success (e.g., show a success message or update the UI)
+            },
+            error: function(response) {
+                // Handle error
+            }
+        });
+    });
+});
+</script>
+</html>

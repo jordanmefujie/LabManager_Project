@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>Logistic Management</h2>
+<ul>
+    {% for logistic in logistics %}
+        <li>{{ logistic.name }} - {{ logistic.remaining_quantity }} remaining</li>
+    {% endfor %}
+</ul>
+{% endblock %}

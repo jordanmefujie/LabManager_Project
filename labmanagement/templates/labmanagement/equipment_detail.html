@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		    <meta charset="UTF-8">
+		        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+			    <title>{{ equipment.name }} Details</title>
+			        <link rel="stylesheet" href="{% static 'labmanagement/css/style.css' %}">
+	</head>
+	<body>
+		    <h2>{{ equipment.name }}</h2>
+		        <p>Category: {{ equipment.category }}</p>
+			    <p>Description: {{ equipment.description }}</p>
+			        <p>Status: {{ equipment.status }}</p>
+				    <p>Last Maintenance: {{ equipment.last_maintenance }}</p>
+	</body>
+</html>

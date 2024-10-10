@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+{% load static %}
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Experiment List</title>
+	<link rel="stylesheet" href="{% static 'labmanagement/css/experiments.css' %}">
+	</head>
+	<body>
+	<h2>Experiment List</h2>
+	<ul>
+	<section class="content">
+        <div class="card">
+            <h2>View Experiments</h2>
+            <p>List, search, and manage your experiments.</p>
+        </div>
+        <div class="card">
+            <h2>Add New Experiment</h2>
+            <p>Start a new experiment by clicking the button below.</p>
+            <button class="btn">Add Experiment</button>
+        </div>
+    </section>
+
+	{% for experiment in experiments %}
+	<li><a href="{% url 'experiment_detail' experiment.pk %}">{{ experiment.title }}</a> - {{ experiment.status }}</li>
+	{% endfor %}
+	</ul>
+	</body>
+</html>

@@ -1,0 +1,328 @@
+* {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        /* list-style: none;*/
+        text-decoration: none;
+}
+header {
+        background-color: rgb(33, 129, 133);
+        color: antiquewhite;
+}
+.navbar {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 80%;
+    height: 7vh;
+    margin: 0 auto;
+}
+
+.navlinks {
+    list-style: none;
+    display: flex;
+    gap: 1rem;
+}
+.navlinks a {
+    color: white;
+}
+.button {
+cursor: pointer;
+display: flex;
+gap: 1rem;
+}
+
+.login {
+    padding: 0.5rem;
+    border-radius: 0.33rem;
+    color: aqua;
+    background-color: transparent;
+    outline: 2px solid rgb(33, 129, 133);
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+.register {
+    padding: 0.5rem;
+    border-radius: 0.33rem;
+    font-weight: bold;
+    border: 2px solid white;
+    background-color: transparent;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+.login:hover, .register:hover {
+    background-color: rgba(255, 255, 255, 0.2); /* Add hover effect */
+}
+/* apps links */
+.pps_links {
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    z-index: 100;
+}
+
+.hamburger {
+    background-color: green; /* Button color */
+    color: white; /* Text color */
+    border: none;
+    padding: 10px;
+    font-size: 24px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.menu__toggle {
+    display: block;
+    position: relative;
+}
+
+.menu__toggle input[type="checkbox"] {
+    display: none; /* Hide the checkbox */
+}
+
+.menu__links {
+    position: absolute;
+    top: 60px; /* Position the menu below the button */
+    left: 0;
+    width: 250px;
+    background-color: #ededed;
+    list-style: none;
+    padding: 20px;
+    display: none; /* Hide menu by default */
+    transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1.0);
+}
+
+.menu__toggle input:checked ~ nav .menu__links {
+    display: block; /* Show the menu when checkbox is checked */
+}
+
+.menu__links li {
+    padding: 10px 0;
+}
+
+.menu__links a {
+    color: rgb(41, 56, 71);
+    transition: color 0.3s ease;
+    text-decoration: none;
+    font-size: 18px;
+}
+
+.menu__links a:hover {
+    color: orangered;
+}
+
+
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #004d40;
+}
+
+p {
+    text-align: center;
+    line-height: 1.6;
+    color: #555;
+}
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* The pointr CSS */
+.hamburger-menu {
+    position: relative;
+}
+
+.hamburger-menu .pointer {
+    position: absolute;
+    top: 10px; /* Adjust as needed */
+    left: 50%;
+    transform: translateX(-50%);
+    width: 10px;
+    height: 10px;
+    background-color: red;
+    border-radius: 50%;
+    animation: bounce 1s infinite;
+}
+@keyframes bounce {
+    0%, 100% {
+        transform: translate(-50%, -10px);
+    }
+    50% {
+        transform: translate(-50%, 0px);
+    }
+}
+
+.intro {
+    padding: 20px;
+    background-color: #fff;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.cards-container {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.card {
+    background-color: white;
+    padding: 20px;
+    margin: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 250px;
+    text-align: center;
+    border-radius: 8px;
+}
+
+.card h2 {
+    margin-bottom: 10px;
+    font-size: 1.5em;
+}
+
+.card p {
+    font-size: 1em;
+    color: #555;
+    margin-bottom: 20px;
+}
+
+.card .btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #2f8f2f;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+
+/* Styling for all images in the cards */
+.card img {
+    width: 100%; /* Make the images responsive */
+    height: auto; /* Maintain aspect ratio */
+    border-radius: 8px; /* Rounded corners for a modern look */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add a subtle shadow */
+    margin-bottom: 15px; /* Add spacing below the image */
+    transition: transform 0.3s ease; /* Smooth transition for hover effect */
+}
+
+.card img:hover {
+    transform: scale(1.05); /* Slight zoom-in effect on hover */
+}
+
+/* Specific styling for the logo image in the navbar */
+.logo-container img {
+    width: 50px; /* Set the width for the logo */
+    height: 50px; /* Set the height for the logo */
+    border-radius: 50%; /* Make the logo circular */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15); /* Add a subtle shadow */
+}
+
+/* Adjusting the images for smaller screens */
+@media (max-width: 768px) {
+    .card img {
+        width: 100%; /* Ensure images take full width on small screens */
+        height: auto; /* Maintain aspect ratio */
+    }
+
+    .logo-container img {
+        width: 40px; /* Adjust logo size for smaller screens */
+        height: 40px;
+    }
+}
+
+/* Footer Styling */
+.footer-content {
+    background-color: #333;
+    color: #fff;
+    padding: 20px 0;
+    text-align: center;
+    margin-top: 50px;
+}
+
+.footer-content p {
+    font-size: 16px;
+    margin-bottom: 20px;
+}
+
+.social-media {
+    margin-bottom: 20px;
+}
+
+.social-media a {
+    margin: 0 10px;
+    display: inline-block;
+}
+
+.social-media .social-icon {
+    width: 2px;
+    height: 20px;
+    border-radius: 50%;
+    transition: transform 0.3s ease;
+}
+.social-icon a img {
+	width: 20px;
+	height: 20px;
+	margin: 0 10px;
+	transition: transform 0.3s ease, box-shadow 0.3s ease;
+	vertical-align: middle;
+}
+
+.social-media .social-icon:hover {
+    transform: scale(1.1);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.external-links {
+    margin-bottom: 20px;
+}
+
+.external-links ul {
+    list-style: none;
+    padding: 0;
+}
+
+.external-links ul li {
+    display: inline;
+    margin: 0 15px;
+}
+
+.external-links ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 16px;
+    transition: color 0.3s ease;
+}
+
+.external-links ul li a:hover {
+    color: #1abc9c;
+    text-decoration: underline;
+}
+
+.footer-content p {
+    font-size: 14px;
+    color: #ccc;
+}
+
+.footer-content .social-media,
+.footer-content .external-links {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}

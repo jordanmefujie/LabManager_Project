@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}LabManager{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'labmanagement/css/tests_styles.css' %}">
+	<link rel="scripts" href="{% static 'labmanagement/js/interactions.js' %}">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <h1>LabManager</h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="{% url 'test_list' %}">Test List</a></li>
+                <li><a href="{% url 'submit_test_request' %}">Submit Test Request</a></li>
+                <li><a href="{% url 'dashboard' %}">Dashboard</a></li>
+                <li><a href="{% url 'logout' %}">Logout</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        {% block content %}
+        <!-- Content from child templates will be rendered here -->
+        {% endblock %}
+    </main>
+
+    <footer>
+        <p>&copy; 2024 LabManager. All rights reserved.</p>
+    </footer>
+</body>
+</html>

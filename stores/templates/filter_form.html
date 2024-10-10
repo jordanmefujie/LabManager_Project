@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	{% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Logistics</title>
+	<link rel="stylesheet" href="{% static 'stores/css/styles.css' %}">
+    <script src="{% static 'stores/js/logistics.js' %}"></script>
+</head>
+<body>
+<form method="GET" action="{% url 'filter_logistics' %}">
+    <label for="category">Category:</label>
+    <select name="category" id="category">
+        <option value="all">All</option>
+        <option value="chemicals">Chemicals</option>
+        <option value="equipment">Equipment</option>
+        <!-- Add other categories as needed -->
+    </select>
+
+    <label for="status">Status:</label>
+    <select name="status" id="status">
+        <option value="available">Available</option>
+        <option value="low_stock">Low Stock</option>
+        <option value="out_of_stock">Out of Stock</option>
+    </select>
+
+    <button type="submit">Filter</button>
+</form>
+</body>
+</html>

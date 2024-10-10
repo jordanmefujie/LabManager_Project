@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	{% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lab Management - LabManager</title>
+    <link rel="stylesheet" href="{% static 'labmanagement/css/labmanagement.css' %}">
+</head>
+
+<body>
+    <!-- Navbar -->
+    <header>
+        <nav>
+            <div class="logo">
+                <img src="{% static 'img/logo_1.jpg' %}" alt="LabManager Logo">
+            </div>
+            <ul>
+                <li><a href="{% url 'dashboard' %}">Dashboard</a></li>
+                <li><a href="{% url 'labmanagement-home' %}" class="active">Lab Management</a></li>
+		<li><a href="{% url 'logistic' %}">My Logistics</a></li>
+		<!-- <li><a href="{url 'logistics' }">My Logistics</a></li> -->
+                <li><a href="{% url 'dashboard-reports' %}">Reports</a></li>
+                <li><a href="{% url 'dashboard-settings' %}">Settings</a></li>
+                <li><a href="{% url 'logout' %}">Logout</a></li>
+		<!-- Notification Bell Button -->
+<div class="notification-bell-container">
+    <button class="notification-bell" id="notification-bell">
+        <img src="{% static 'img/bell_icon.png' %}" alt="Notifications">
+        <span id="notification-count" class="notification-count"></span>
+    </button>
+
+    <!-- Dropdown Menu for Notifications -->
+    <div id="notification-dropdown" class="notification-dropdown">
+        <ul id="notification-list">
+            <!-- Notifications will be dynamically inserted here -->
+        </ul>
+    </div>
+</div>
+	
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Main content -->
+    <main>
+        <section class="intro">
+            <h1>Lab Management</h1>
+            <p>Manage your laboratory resources, equipment, experiments, and more from this centralized interface.</p>
+        </section>
+
+        <section class="cards-container">
+            <div class="card">
+                <h2>Manage Equipment</h2>
+                <p>Add, update, or remove lab equipment and view current inventory.</p>
+                <a href="{% url 'equipment' %}" class="btn">Go to Equipment</a>
+            </div>
+
+            <div class="card">
+                <h2>Manage Experiments</h2>
+                <p>Plan, execute, and track laboratory experiments.</p>
+                <a href="{% url 'experiments' %}" class="btn">Go to Experiments</a>
+            </div>
+
+            <div class="card">
+                <h2>Generate Reports</h2>
+                <p>Analyze lab performance, generate reports, and view analytics.</p>
+                <a href="{% url 'dashboard-reports' %}" class="btn">View Reports</a>
+            </div>
+
+            <div class="card">
+                <h2>Lab Settings</h2>
+                <p>Update lab settings and preferences to suit your needs.</p>
+                <a href="{% url 'dashboard-settings' %}" class="btn">Go to Settings</a>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+	<div class="footer-content">
+            <p>&copy; 2024 LabManager. All rights reserved.</p>
+            <div class="social-media">
+		<a href="https://www.facebook.com" target="_blank">
+            <img src="{% static 'img/fb.jpg' %}" alt="Facebook" style="width: 24px; height: 24px; border-radius: 50%;">
+        </a>
+        <a href="https://www.github.com" target="_blank">
+            <img src="{% static 'img/gh.jpeg' %}" alt="GitHub" style="width: 24px; height: 24px; border-radius: 50%;">
+        </a>
+        <a href="https://www.instagram.com" target="_blank">
+            <img src="{% static 'img/in.png' %}" alt="Instagram" style="width: 24px; height: 24px; border-radius: 50%;">
+        </a>
+        <a href="https://www.telegram.org" target="_blank">
+            <img src="{% static 'img/tg.jpg' %}" alt="Telegram" style="width: 24px; height: 24px; border-radius: 50%;">
+        </a>
+        <a href="https://www.whatsapp.com" target="_blank">
+            <img src="{% static 'img/wsp.jpeg' %}" alt="WhatsApp" style="width: 24px; height: 24px; border-radius: 50%;">
+        </a>
+        <a href="https://www.twitter.com" target="_blank">
+            <img src="{% static 'img/tt.png' %}" alt="Twitter" style="width: 24px; height: 24px; border-radius: 50%;">
+        </a>
+    </div>     
+        </div>
+    </footer>
+</body>
+<script src="{% static 'labmanagement/js/script.js' %}"></script>
+</html>

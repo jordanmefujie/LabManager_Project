@@ -1,0 +1,12 @@
+<h2>Lab Test Report</h2>
+<p><strong>Test Name:</strong> {{ lab_test.test_name }}</p>
+<p><strong>Patient:</strong> {{ lab_test.patient }}</p>
+<p><strong>Date Requested:</strong> {{ lab_test.request_date }}</p>
+<p><strong>Status:</strong> {{ lab_test.status }}</p>
+
+{% if lab_test.status == 'Completed' %}
+    <h3>Test Results</h3>
+    <p>{{ lab_test.results }}</p>
+{% else %}
+    <p>Results Pending</p>
+{% endif %}

@@ -1,0 +1,68 @@
+from django.urls import path
+from . import views
+from .views import (
+    LabTestListView, LabTestDetailView, LabTestCreateView, LabTestUpdateView, LabTestDeleteView,
+    LabTestRequestListView, LabTestRequestDetailView, LabTestRequestCreateView, LabTestRequestUpdateView, LabTestRequestDeleteView,
+    LabReportListView, LabReportDetailView, LabReportCreateView, LabReportUpdateView, LabReportDeleteView,
+)
+
+urlpatterns = [
+    path('', views.labmanagement_view, name='labmanagement-home'),
+    path('', views.labmanagement_view, name='labmanagement'),
+    path('equipment/', views.equipment_list, name='equipment_list'),
+    path('equipment/<int:pk>/', views.equipment_detail, name='equipment_detail'),
+    path('experiments/', views.experiment_list, name='experiment_list'),
+    path('experiments/<int:pk>/', views.experiment_detail, name='experiment_detail'),
+    path('labmanagement/', views.labmanagement_view, name='dashboard-labmanagement'),
+    path('add-equipment/', views.add_equipment, name='add-equipment'),
+    path('lab-tests/', views.lab_tests, name='lab_tests'),
+    path('patients/reports/', views.view_reports, name='view_reports'),
+    path('patients/reports/<int:report_id>/complete/', views.complete_report, name='complete_report'),
+    path('lab-requests/pending/', views.pending_requests, name='pending_requests'),
+    path('logistics/', views.logistic_management, name='logistics'),
+    path('logistic/', views.logistic_view, name='logistic'),
+    path('patient-reports/', views.patient_reports, name='patient_reports'),
+    path('reports/<int:pk>/', views.report_detail, name='report_detail'),
+    path('submit-test-request/', views.submit_test_request, name='submit_test_request'),
+    path('enter-report/<int:pk>/', views.enter_report, name='enter_report'),
+    path('verify-result/<int:pk>/', views.verify_result, name='verify_result'),
+    path('test-list/', views.test_list, name='test_list'),
+#    path('test-list/', views.test_list, name='test_list'),
+    path('submit-request/', views.submit_test_request, name='submit_test_request'),
+    path('report-entry/<int:pk>/', views.report_entry, name='report_entry'),
+    path('verify-results/<int:pk>/', views.verify_results, name='verify_results'),
+    # LabTest URLs
+    path('labtests/', LabTestListView.as_view(), name='labtest-list'),
+    path('labtests/<int:pk>/', LabTestDetailView.as_view(), name='labtest-detail'),
+    path('labtests/create/', LabTestCreateView.as_view(), name='labtest-create'),
+    path('labtests/<int:pk>/update/', LabTestUpdateView.as_view(), name='labtest-update'),
+    path('labtests/<int:pk>/delete/', LabTestDeleteView.as_view(), name='labtest-delete'),
+    path('labtests/', LabTestListView.as_view(), name='labtest_list'),
+    path('labtests/<int:pk>/', views.LabTestDetailView.as_view(), name='labtest_detail'),
+    path('labtests/form/', views.LabTestFormView.as_view(), name='labtest_form'),
+    path('labtest/<int:pk>/delete/', views.LabTestDeleteView.as_view(), name='labtest_confirm_delete'),
+
+    # LabTestRequest URLs
+    path('labtestrequests/<int:pk>/', views.LabTestRequestDetailView.as_view(), name='labtestrequest_detail'),
+    path('labtestrequests/', views.LabTestRequestListView.as_view(), name='labtestrequest_list'),
+    path('labtestrequests/', LabTestRequestListView.as_view(), name='labtestrequest-list'),
+    path('labtestrequests/<int:pk>/', LabTestRequestDetailView.as_view(), name='labtestrequest-detail'),
+    path('labtestrequests/create/', LabTestRequestCreateView.as_view(), name='labtestrequest-create'),
+    path('labtestrequests/<int:pk>/update/', LabTestRequestUpdateView.as_view(), name='labtestrequest-update'),
+    path('labtestrequests/<int:pk>/delete/', LabTestRequestDeleteView.as_view(), name='labtestrequest-delete'),
+
+    # LabReport URLs
+    path('labreports/<int:pk>/', LabReportDetailView.as_view(), name='labreport_detail'),
+    path('labreports/new/', LabReportCreateView.as_view(), name='labreport_form'),
+    path('labreports/', LabReportListView.as_view(), name='labreport_list'),
+    path('labreports/<int:pk>/', LabReportDetailView.as_view(), name='labreport_detail'),
+    path('labreports/', LabReportListView.as_view(), name='labreport-list'),
+    path('labreports/<int:pk>/', LabReportDetailView.as_view(), name='labreport-detail'),
+    path('labreports/create/', LabReportCreateView.as_view(), name='labreport-create'),
+    path('labreports/<int:pk>/update/', LabReportUpdateView.as_view(), name='labreport-update'),
+    path('labreports/<int:pk>/delete/', LabReportDeleteView.as_view(), name='labreport-delete'),
+    path('labtestrequests/create/', views.LabTestRequestCreateView.as_view(), name='labtestrequest_form'),
+    path('labreports/<int:pk>/delete/', LabReportDeleteView.as_view(), name='labreport_confirm_delete'),
+    path('request-lab-test/', views.request_lab_test, name='request_lab_test'),
+    path('lab-test-report/<int:pk>/', views.view_lab_report, name='view_lab_report'),
+]

@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	{% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lab Tests</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+<header>
+	<nav>
+	    <ul>
+	            <li><a href="{% url 'reports' %}">Reports</a></li>
+		    <li><a href="{% url 'labmanagement' %}">Lab Management</a></li>
+		    <ul>
+        {% for labtest in labtests %}
+            <li><a href="{% url 'labtest-detail' labtest.id %}">{{ labtest.name }}</a></li>
+        {% endfor %}
+    </ul>
+	<ul>
+        {% for labtest in labtests %}
+            <li><a href="{% url 'labtest-detail' labtest.id %}">{{ labtest.name }}</a></li>
+        {% endfor %}
+    </ul>
+
+    {% if labtest_request.id %}
+        <a href="{% url 'labtestrequest-detail' labtest_request.id %}">Request Test</a>
+        <a href="{% url 'labtestrequest-update' labtest_request.id %}">Edit</a>
+        <a href="{% url 'labtestrequest-delete' labtest_request.id %}">Delete</a>
+    {% else %}
+        <p>No valid request found.</p>
+    {% endif %}
+    
+    <a href="{% url 'labtestrequest-list' %}">Back to Lab Test Requests</a>
+    <a href="{% url 'labtestrequest_form' %}">Submit Test</a>
+    <!-- Ensure you are passing a valid pk here -->
+{% if labtest.pk %}
+    <a href="{% url 'labreport-detail' pk=labtest.pk %}">Report</a>
+{% else %}
+    <p>No valid report found.</p>
+{% endif %}
+	<!-- Ensure you are passing the valid pk here -->
+	{% if labtest.id %}
+    <a href="{% url 'labtest-update' labtest.id %}">Edit</a>
+    <a href="{% url 'labtest-delete' labtest.id %}">Delete</a>
+    {% else %}
+        <p>No valid lab test found.</p>
+	{% endif %}
+
+
+    <a href="{% url 'labtest-list' %}">Back to Lab Tests</a>
+		    <p>labtest_detail
+		    labtest_form
+		    labtest_confirm_delete
+		    labtestrequest_list
+		    labtestrequest_detail
+		    labtestrequest_form
+		    labtestrequest_confirm_delete
+		    labreport_list
+		    labreport_detail
+		    labreport_form
+		    labreport_confirm_delete
+		    lab_tests
+		    logistics
+		    report_entry
+		    test_request_form
+		    verify_results
+		    complete_report</p>
+	    </ul>
+	</nav>
+</header>
+    <div class="container mt-5">
+        <h1 class="mb-4">Lab Tests</h1>
+        <a href="{% url 'labtest-create' %}" class="btn btn-primary mb-3">Add New Lab Test</a>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for labtest in labtests %}
+                    <tr>
+                        <td>{{ labtest.id }}</td>
+                        <td>{{ labtest.name }}</td>
+                        <td>
+                            <a href="{% url 'labtest-detail' labtest.id %}" class="btn btn-info btn-sm">View</a>
+                            <a href="{% url 'labtest-update' labtest.id %}" class="btn btn-warning btn-sm">Edit</a>
+                            <a href="{% url 'labtest-delete' labtest.id %}" class="btn btn-danger btn-sm">Delete</a>
+                        </td>
+                    </tr>
+                {% empty %}
+                    <tr>
+                        <td colspan="3">No lab tests available.</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>

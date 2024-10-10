@@ -1,0 +1,25 @@
+<!-- stores/templates/stores/commodity_list.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	{% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Commodity List</title>
+    <link rel="stylesheet" href="{% static 'stores/css/add_style.css' %}">
+</head>
+<body>
+    <h2>Commodity List</h2>
+    <ul>
+        {% for commodity in commodities %}
+	{% if not commodity.deleted %}
+            <li>
+	    {{ commodity.name }} - {{ commodity.category }} - {{ commodity.quantity }} - {{ commodity.supplier }} - {{ commodity.stocking_date }}
+	    <a href="{% url 'delete_commodity' commodity.pk %}" class="delete-link">Delete</a>
+	    </li>
+	    {% endif %}
+        {% endfor %}
+    </ul>
+    <a href="{% url 'add_commodity' %}">Add New Commodity</a>
+</body>
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	{% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lab Test Detail</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container mt-5">
+        <h1>Lab Test: {{ labtest.name }}</h1>
+        <p>ID: {{ labtest.id }}</p>
+        <p>Name: {{ labtest.name }}</p>
+	<ul>
+	    {% for labtest in tests %}
+        <a href="{% url 'labtest-list' %}" class="btn btn-secondary">Back to List</a>
+	    {% endfor %}
+	</ul>
+        <a href="{% url 'labtest-update' labtest.id %}" class="btn btn-warning">Edit</a>
+        <a href="{% url 'labtest-delete' labtest.id %}" class="btn btn-danger">Delete</a>
+    </div>
+</body>
+</html>

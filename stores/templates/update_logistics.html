@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	{% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update Logistics</title>
+    <link rel="stylesheet" href="{% static 'stores/css/styles.css' %}">
+</head>
+<body>
+    <h2>Update Logistics for {{ commodity.name }}</h2>
+    <form method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Update Logistics</button>
+    </form>
+</body>
+</html>

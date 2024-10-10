@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	{% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Logistics Dashboard</title>
+    <script src="{% static 'stores/js/logistics.js' %}"></script>
+	
+</head>
+<body>
+    <div class="logistics-dashboard">
+        <h2>Logistics Overview</h2>
+        <div id="logistics-overview">
+            <!-- Real-time data will be populated here -->
+	<div class="dashboard">
+    <h2>Logistics Dashboard</h2>
+    <div class="metrics">
+        <div class="metric">
+            <h3>Total Commodities</h3>
+            <p>{{ total_commodities }}</p>
+        </div>
+        <div class="metric">
+            <h3>Low Stock Alerts</h3>
+            <p>{{ low_stock_alerts }}</p>
+        </div>
+        <div class="metric">
+            <h3>Pending Restocks</h3>
+            <p>{{ pending_restocks }}</p>
+        </div>
+    </div>
+    <div class="filters">
+        <input type="text" placeholder="Search commodities..." id="commodity-search">
+        <select id="filter-category">
+            <option value="">Filter by Category</option>
+            {% for category in categories %}
+                <option value="{{ category }}">{{ category }}</option>
+            {% endfor %}
+        </select>
+        <select id="filter-status">
+            <option value="">Filter by Status</option>
+            <option value="available">Available</option>
+            <option value="low_stock">Low Stock</option>
+            <option value="out_of_stock">Out of Stock</option>
+        </select>
+    </div>
+</div>
+
+	<div class="logistics-dashboard">
+    <h2>Logistics Overview</h2>
+    <div class="stock-overview">
+        <h3>Current Stock</h3>
+        <ul>
+            {% for commodity in commodities %}
+            <li>{{ commodity.name }} - {{ commodity.quantity }} ({{ commodity.status }})</li>
+            {% endfor %}
+        </ul>
+    </div>
+    <div class="restocking-dates">
+        <h3>Restocking Dates</h3>
+        <ul>
+            {% for stock in restocks %}
+            <li>{{ stock.commodity.name }}: {{ stock.restocking_date }}</li>
+            {% endfor %}
+        </ul>
+    </div>
+    <div class="usage-history">
+        <h3>Usage History</h3>
+        <ul>
+            {% for usage in usage_history %}
+            <li>{{ usage.commodity.name }} used on {{ usage.usage_date }} - Quantity: {{ usage.quantity }}</li>
+            {% endfor %}
+        </ul>
+    </div>
+</div>
+<form method="GET" action="{% url 'filter_logistics' %}">
+    <label for="category">Category:</label>
+    <select name="category">
+        <option value="">All</option>
+        {% for category in categories %}
+        <option value="{{ category }}">{{ category }}</option>
+        {% endfor %}
+    </select>
+
+    <label for="status">Status:</label>
+    <select name="status">
+        <option value="">All</option>
+        <option value="available">Available</option>
+        <option value="low_stock">Low Stock</option>
+        <option value="out_of_stock">Out of Stock</option>
+    </select>
+
+    <label for="date">Date:</label>
+    <input type="date" name="date">
+
+    <button type="submit">Filter</button>
+</form>
+
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,163 @@
+/* Reset default styles */
+* {
+	margin: 0;
+    	padding: 0;
+    	box-sizing: border-box;
+    	text-decoration: none;
+    	list-style: none;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: rgb(41, 56, 71);
+    color: #cdcdcd;
+    margin: 0;
+    padding: 0;
+}
+
+/* Header and Navbar */
+header {
+    background-color: rgb(33, 129, 133);
+    color: antiquewhite;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+}
+
+.logo {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.logo-text {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: antiquewhite;
+}
+
+.Navlinks {
+    display: flex;
+    gap: 2rem;
+}
+
+.Navlinks a {
+    color: #fff;
+    font-size: 1rem;
+    transition: color 0.3s;
+}
+
+.Navlinks a:hover {
+    color: #ff9800;
+}
+
+.button {
+    display: flex;
+    gap: 1rem;
+}
+
+.login, .Register {
+    padding: 0.5rem 1rem;
+    border-radius: 0.33rem;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.login {
+    background-color: rgb(33, 129, 133);
+    color: #fff;
+    border: 2px solid #fff;
+}
+
+.Register {
+    background-color: #ff9800;
+    color: #fff;
+}
+
+.login:hover {
+    background-color: rgb(41, 56, 71);
+}
+
+.Register:hover {
+    background-color: rgb(33, 129, 133);
+}
+
+/* Hero Section */
+.hero-section {
+    text-align: center;
+    padding: 2rem 0;
+    background-color: rgb(33, 129, 133);
+    color: antiquewhite;
+}
+
+.hero-section h3 {
+    font-size: 2rem;
+}
+
+.hero-section em {
+    font-style: italic;
+    color: rgb(165, 42, 138);
+}
+
+/* Main Section */
+.main {
+    padding: 2rem;
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: justify;
+    background-color: #fff;
+    color: #333;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.main h1 {
+    text-align: center;
+    margin-bottom: 1rem;
+    color: rgb(33, 129, 133);
+}
+
+.main p, .main ul {
+    margin-bottom: 1rem;
+}
+
+/* Footer */
+footer {
+    background-color: rgb(33, 129, 133);
+    color: #fff;
+    padding: 1rem;
+    text-align: center;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+    }
+
+    .Navlinks {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .button {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+}

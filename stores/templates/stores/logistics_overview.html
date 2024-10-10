@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	{% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Logistics Overview</title>
+    <link rel="stylesheet" href="{% static 'stores/css/style.css' %}">
+</head>
+<body>
+    <h1>Logistics Overview</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Quantity</th>
+                <th>Status</th>
+                <th>Last Updated</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for logistic in logistics %}
+            <tr>
+                <td><a href="{% url 'logistic_detail' logistic.pk %}">{{ logistic.name }}</a></td>
+                <td>{{ logistic.quantity }}</td>
+                <td>{{ logistic.status }}</td>
+                <td>{{ logistic.last_updated }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>

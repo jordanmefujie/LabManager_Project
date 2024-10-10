@@ -1,0 +1,12 @@
+{% extends "labmanagement/base.html" %}
+
+{% block content %}
+<h2>Verify Results for {{ lab_test.test_name }}</h2>
+<div class="form-container">
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Verify</button>
+</form>
+</div>
+{% endblock %}

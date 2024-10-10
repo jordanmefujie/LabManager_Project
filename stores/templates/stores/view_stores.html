@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	{% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stores Inventory</title>
+    <link rel="stylesheet" href="{% static 'stores/css/stores.css' %}">
+</head>
+<body>
+    <header>
+        <h1>Logistics Inventory</h1>
+    </header>
+
+    <div class="inventory-container">
+        {% if logistics %}
+            <table class="inventory-table">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Quantity Available</th>
+                        <th>Status</th>
+                        <th>Last Stocked Date</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for item in logistics %}
+                        <tr>
+                            <td>{{ item.name }}</td>
+                            <td>{{ item.quantity }}</td>
+                            <td>{{ item.status }}</td>
+                            <td>{{ item.stocked_date }}</td>
+                            <td>
+                                <a href="{% url 'logistic_detail' item.pk %}">View Details</a>
+				<a href="{% url 'delete_commodity' item.pk %}">Delete</a>  <!-- Corrected URL pattern with 'pk' -->
+                                {% for item in logistics %}
+    				<li><a href="{% url 'update_logistics' item.pk %}">Update Logistics</a></li>
+				{% endfor %}
+                            </td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        {% else %}
+            <p>No logistics items available at the moment.</p>
+        {% endif %}
+    </div>
+	<section class="Links">
+	<nav>
+            <ul>
+                <li><a href="{% url 'dashboard' %}">Dashboard</a></li>
+                <li><a href="{% url 'commodity_list' %}">Commodity List</a></li>
+                <li><a href="{% url 'add_commodity' %}">Add Commodity</a></li>
+               <!-- <li><a href="{ url 'update_logistics' item.pk %}">Update Logistics</a></li> -->
+               <!-- <li><a href="{ url 'delete_commodity' }">Delete Commodity</a></li> -->
+	       <li><a href="{% url 'commodity_list' %}">Delete Commodity</a></li>
+            </ul>
+        </nav>
+	</section>
+
+    <footer>
+        <p>&copy; 2024 LabManager. All rights reserved.</p>
+    </footer>
+</body>
+</html>

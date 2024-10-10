@@ -1,0 +1,35 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LabManager</title>
+    <link rel="stylesheet" href="{% static 'home/css/apps_link.css' %}">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="menu__toggle">
+            <!--check-->
+            <input type="checkbox"/>
+
+            <!--3spans-->
+            <span></span>
+	    <span></span>
+            <span></span>
+
+	    <!--manu__items-->
+	    <ul class="menu__links">
+	    <li><a href="{% url 'home' %}">Home</a></li>
+	    <li><a href="{% url 'dashboard' %}">Dashboard</a></li>
+	    <li><a href="{% url 'labmanagement' %}">Lab Management</a></li>
+	    <li><a href="{% url 'reports' %}">Reports</a></li>
+	    <li><a href="{% url 'settings' %}">Settings</a></li>
+	    <li><a href="{% url 'login' %}">Login</a></li>
+	    <li><a href="{% url 'register' %}">Register</a></li>
+            </ul>
+
+        </div>
+    </nav>
+</body>
+</html>

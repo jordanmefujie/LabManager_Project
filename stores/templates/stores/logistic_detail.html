@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	{% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ logistic.name }}</title>
+    <link rel="stylesheet" href="{% static 'stores/css/style.css' %}">
+</head>
+<body>
+    <h1>{{ logistic.name }}</h1>
+    <p><strong>Quantity:</strong> {{ logistic.quantity }}</p>
+    <p><strong>Status:</strong> {{ logistic.status }}</p>
+    <p><strong>Stocked Date:</strong> {{ logistic.stocked_date }}</p>
+    <p><strong>Last Updated:</strong> {{ logistic.last_updated }}</p>
+</body>
+</html>
