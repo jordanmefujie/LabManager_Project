@@ -2,21 +2,6 @@ from django.db import models
 from django.contrib.auth.models import User
 
 # Create your models here.
-# Profile model linked to User
-class Profile(models.Model):
-    USER_TYPE_CHOICES = (
-        ('admin', 'Admin'),
-        ('customer', 'Customer'),
-    )
-    
-    user = models.OneToOneField(User, on_delete=models.CASCADE)
-    user_type = models.CharField(max_length=10, choices=USER_TYPE_CHOICES, default='customer')
-    organization = models.CharField(max_length=255, blank=True)  # e.g., Lab name or organization
-    
-    def __str__(self):
-        return f"{self.user.username} ({self.get_user_type_display()})"
-
-
 class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     profile_picture = models.ImageField(upload_to='profile_pictures/', blank=True, null=True)

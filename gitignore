@@ -1,0 +1,60 @@
+# Django
+*.log
+*.pot
+*.pyc
+__pycache__/
+db.sqlite3
+db.sqlite3-journal
+
+
+# Environments
+.env
+*.env
+venv/
+ENV/
+env/
+*.venv
+
+# Local settings
+local_settings.py
+
+# Django migrations
+**/migrations/*
+!**/migrations/__init__.py
+
+# Static and media files
+/staticfiles/
+/media/
+
+# Byte-compiled / optimized / DLL files
+*.py[cod]
+*.so
+*.dll
+*.dylib
+
+# Unit test / coverage reports
+htmlcov/
+.tox/
+.nox/
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+*.py,cover
+.hypothesis/
+pytest_cache/
+
+# JetBrains IDE settings (PyCharm, WebStorm)
+.idea/
+
+# MacOS system files
+.DS_Store
+
+# Thumbnails and other static/generated files
+thumbs.db
+
+# Swap files
+*.swp
+*.swo

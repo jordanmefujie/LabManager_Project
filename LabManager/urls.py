@@ -28,6 +28,7 @@ from reports import views
 from Links import views
 from stores import views
 from notifications import views
+from labs import views
 
 # urlpatterns = [
 #    path('admin/', admin.site.urls),
@@ -58,4 +59,5 @@ path('accounts/', include('accounts.urls')),
 # base url fo stores
 path('stores/', include('stores.urls')),
 path('notifications/', include('notifications.urls')),
+path('labs/', include('labs.urls')),
 ]

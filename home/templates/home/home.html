@@ -83,8 +83,6 @@ html {
     display: none;
     flex-direction: column;
 }
-
-
     </style>
 
     <!-- Include Chart.js library for charts -->
@@ -159,6 +157,7 @@ html {
     </nav>
     </div>
     </header>
+    <section>
     <main class="main-body">
     
   <!--  <section class="apps_links"> -->
@@ -189,70 +188,28 @@ html {
             <a href="{% url 'services' %}"></a>Explore Our Services</a>
 	    </section>
 
-            
-                <section class="cards-container">
-                    <div class="card">
-                        <h2>Key Metrics Overview</h2>
-                        <p>Quick summaries or statistics related to laboratory operations:</p>
-                        <ul>
-                            <li>Number of active experiments: 45</li>
-                            <li>Average turnaround time for sample analysis: 3.5 days</li>
-                            <li>Percentage of completed tasks for the current month: 85%</li>
-                        </ul>
-                    </div>
-        
-                    <div class="card">
-                        <h2>Search and Filter Options</h2>
-                        <p>Tools for users to search for specific information or filter data:</p>
-                        <input type="text" id="search" placeholder="Search experiments 
-                        by name or date">
-                        <select id="filter-status">
-                            <option value="all">All</option>
-                            <option value="completed">Completed</option>
-                            <option value="in-progress">In Progress</option>
-                            <option value="pending">Pending</option>
-                        </select>
-                        <button onclick="performSearch()">Search</button>
-                    </div>
-
 		<!-- new addition -->
-		<div class="card">
-            <h1>Lab Management</h1>
-            <p>Revolutionizing laboratory management through innovation and efficiency.</p>
-	    <a href="{% url 'labmanagement' %}" class="btn">Go To Lab Management</a>
-	    </div>
-
-            <div class="card">
-                <h2>Manage Equipment</h2>
-                <p>Track and manage lab equipment effectively.</p>
-		<a href="{% url 'equipment' %}" class="btn">Lab Equipment</a>
-            </div>
-            <div class="card">
-                <h2>Experiment Tracking</h2>
-                <p>Monitor experiment progress and outcomes seamlessly.</p>
-		<a href="{% url 'experiments' %}" class="btn">Lab Experiments</a>
-            </div>
-            <div class="card">
-                <h2>Generate Reports</h2>
-                <p>Generate detailed reports for lab activities and performance.</p>
-		<a href="{% url 'reports' %}" class="btn">Get Lab Reports</a>
-            </div>
-
-    <div class="card">
-        <h2>Latest Updates</h2>
-        <ul>
-            <a href="#" class="btn">New Feature: Real-Time Data Syncing</a>
-            <a href="#" class="btn">Blog Post: 5 Tips for Efficient Lab Management</a>
-            <a href="#" class="btn">Announcing Our Partnership with XYZ Labs</a>
-        </ul>
+	<section class="hero-section1" style="background-image: url('{% static 'img/back1.jpg' %}'); background-size: cover; height: 100vh; display: flex; justify-content: center; align-items: center; color: white;">
+		<div class="hero-content">
+        <h1>Lab Management</h1>
+        <p>Revolutionizing laboratory management through innovation and efficiency.</p>
+        <a href="{% url 'labmanagement' %}" class="btn">Go To Lab Management</a>
     </div>
-        
-                <div class="card">
-                    <h2>Call-to-Action</h2>
-                    <p>Encouraging users to explore more features or contact for a demo:</p>
-                    <a href="{% url 'services' %}" class="btn">Explore More</a><br><br>
-                    <a href="{% url 'contact' %}" class="btn">More Information</a>
-                </div>
+    
+    <div class="feature-section">
+            <h2>Manage Equipment</h2>
+            <p>Track and manage lab equipment effectively.</p>
+            <a href="{% url 'equipment' %}" class="btn">Lab Equipment</a>
+
+            <h2>Experiment Tracking</h2>
+            <p>Monitor experiment progress and outcomes seamlessly.</p>
+            <a href="{% url 'experiments' %}" class="btn">Lab Experiments</a>
+
+            <h2>Call-to-Action</h2>
+            <p>Encouraging users to explore more features or contact for a demo:</p>
+            <a href="{% url 'contact' %}" class="btn">More Information</a>
+    </div>
+</section>
 		<!-- More actions -->
 		<div class="card">
 		<img src="{% static 'img/logo_2.jpg' %}" alt="Services">
@@ -272,28 +229,21 @@ html {
 			<div class="card">
 				<img src="{% static 'img/logo_5.jpg' %}" alt="More Information">
 				<p>Find out more about how LabManager can help your lab excel.</p>
+				<a href="{% url 'services' %}" class="btn">Lear More Here</a>
+			</div>
+			<div class="card">
+			<h2>Generate Reports</h2>
+			<p>Generate detailed reports for lab activities and performance.</p>
+			<a href="{% url 'reports' %}" class="btn">Get Lab Reports</a>
+			</div>
+			<div class="card">
+			<h2>Call-to-Action</h2>
+			<p>Encouraging users to explore more features or contact for a demo:</p>
+			<a href="{% url 'services' %}" class="btn">Explore More</a><br>
 			</div>
 
-			<!-- Metrics Section -->
-    <div class="card">
-        <h2>Our Impact</h2>
-        <p>Discover how LabManager is transforming labs worldwide</p>
-        <ul>
-            <a href="{% url 'services' %}" class="btn">Lear More Here</a>
-        </ul>
-    </div>
-
-    <!-- Search Section -->
-    <div class="card">
-        <h2>Find a Lab Near You</h2>
-        <p>Enter your location to search for labs in your area</p>
-        <input type="text" id="cityInput" placeholder="Enter your city...">
-	<div id="suggestions"></div>
-        <button onclick="searchLabs()">Search</button>
-    </div>
-
     <!-- CTA Section -->
-    <div class="card">
+    <div class="section">
         <h2>Ready to Get Started?</h2>
         <p>Join LabManager today and streamline your lab operations</p>
         <a href="{% url 'register' %}" class="btn">Sign Up Now</a>
@@ -308,7 +258,7 @@ html {
         <a href="https://www.facebook.com" target="_blank">
             <img src="{% static 'img/fb.jpg' %}" alt="Facebook" style="width: 24px; height: 24px; border-radius: 50%;">
         </a>
-        <a href="https://www.github.com" target="_blank">
+        <a href="https://www.github.com/jordanmefujie" target="_blank">
             <img src="{% static 'img/gh.jpeg' %}" alt="GitHub" style="width: 24px; height: 24px; border-radius: 50%;">
         </a>
         <a href="https://www.instagram.com" target="_blank">
@@ -317,18 +267,16 @@ html {
         <a href="https://www.telegram.org" target="_blank">
             <img src="{% static 'img/tg.jpg' %}" alt="Telegram" style="width: 24px; height: 24px; border-radius: 50%;">
         </a>
-        <a href="https://www.whatsapp.com" target="_blank">
+        <a href="https://www.whatsapp.com/+233549834582" target="_blank">
             <img src="{% static 'img/wsp.jpeg' %}" alt="WhatsApp" style="width: 24px; height: 24px; border-radius: 50%;">
         </a>
-        <a href="https://www.twitter.com" target="_blank">
+        <a href="https://www.twitter.com/jordan-mefujie" target="_blank">
             <img src="{% static 'img/tt.png' %}" alt="Twitter" style="width: 24px; height: 24px; border-radius: 50%;">
         </a>
     </div>
 	<div class="external-links">
 	<ul>
                 <li><a href="https://www.example1.com" target="_blank">External Link 1</a></li>
-                <li><a href="https://www.example2.com" target="_blank">External Link 2</a></li>
-                <li><a href="https://www.example3.com" target="_blank">External Link 3</a></li>
             </ul>
 	    </div>
 	    <div>
@@ -383,6 +331,11 @@ function searchLabs() {
             // Implement search and filter functionality here
             console.log(`Search Query: ${searchQuery}, Filter Status: ${filterStatus}`);
         }
+	const toggle = document.getElementById('theme-toggle');
+    toggle.addEventListener('click', () => {
+        document.body.classList.toggle('dark-mode');
+    });
     </script>
+	
 </body>
 </html>

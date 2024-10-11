@@ -167,162 +167,217 @@ p {
     }
 }
 
-.intro {
+
+/* General Styling */
+html {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    color: #333;
+}
+
+section {
     padding: 20px;
-    background-color: #fff;
+}
+
+/* Hero Section Styling */
+.hero-section, .hero-section1 {
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
     text-align: center;
+}
+
+.hero-section h1, .hero-section1 h1 {
+    font-size: 3rem;
+    margin-bottom: 10px;
+}
+
+.hero-section p, .hero-section1 p {
+    font-size: 1.2rem;
     margin-bottom: 20px;
 }
 
-.cards-container {
+.hero-section .btn, .hero-section1 .btn {
+    padding: 10px 20px;
+    background-color: #28a745;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.hero-section .btn:hover, .hero-section1 .btn:hover {
+    background-color: #218838;
+}
+
+/* Intro Section */
+.intro p {
+    font-size: 1.2rem;
+    margin: 20px 0;
+}
+
+.intro .importance {
+    font-weight: bold;
+    font-size: 1.1rem;
+}
+
+/* Feature Section */
+.feature-section {
     display: flex;
     justify-content: space-around;
     flex-wrap: wrap;
+    margin-top: 50px;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
-.card {
-    background-color: white;
+.feature-card {
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
     padding: 20px;
-    margin: 20px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    width: 250px;
     text-align: center;
-    border-radius: 8px;
+    width: 100%;
+    max-width: 300px;
+    margin: 10px;
+    color: white;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease;
 }
 
-.card h2 {
+.feature-card:hover {
+    transform: translateY(-10px);
+}
+
+.feature-card h2 {
+    font-size: 1.8rem;
     margin-bottom: 10px;
-    font-size: 1.5em;
 }
 
-.card p {
-    font-size: 1em;
-    color: #555;
-    margin-bottom: 20px;
+.feature-card p {
+    margin-bottom: 15px;
+    font-size: 1.1rem;
 }
 
-.card .btn {
-    display: inline-block;
-    padding: 10px 20px;
-    background-color: #2f8f2f;
+.feature-card .btn {
+    background-color: #28a745;
+    padding: 8px 15px;
     color: white;
     text-decoration: none;
     border-radius: 5px;
 }
 
-
-/* Styling for all images in the cards */
-.card img {
-    width: 100%; /* Make the images responsive */
-    height: auto; /* Maintain aspect ratio */
-    border-radius: 8px; /* Rounded corners for a modern look */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add a subtle shadow */
-    margin-bottom: 15px; /* Add spacing below the image */
-    transition: transform 0.3s ease; /* Smooth transition for hover effect */
+.feature-card .btn:hover {
+    background-color: #218838;
 }
 
-.card img:hover {
-    transform: scale(1.05); /* Slight zoom-in effect on hover */
-}
-
-/* Specific styling for the logo image in the navbar */
-.logo-container img {
-    width: 50px; /* Set the width for the logo */
-    height: 50px; /* Set the height for the logo */
-    border-radius: 50%; /* Make the logo circular */
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15); /* Add a subtle shadow */
-}
-
-/* Adjusting the images for smaller screens */
-@media (max-width: 768px) {
-    .card img {
-        width: 100%; /* Ensure images take full width on small screens */
-        height: auto; /* Maintain aspect ratio */
-    }
-
-    .logo-container img {
-        width: 40px; /* Adjust logo size for smaller screens */
-        height: 40px;
-    }
-}
-
-/* Footer Styling */
-.footer-content {
-    background-color: #333;
-    color: #fff;
-    padding: 20px 0;
-    text-align: center;
-    margin-top: 50px;
-}
-
-.footer-content p {
-    font-size: 16px;
-    margin-bottom: 20px;
-}
-
-.social-media {
-    margin-bottom: 20px;
-}
-
-.social-media a {
-    margin: 0 10px;
+/* Card Section */
+.card {
     display: inline-block;
-}
-
-.social-media .social-icon {
-    width: 2px;
-    height: 20px;
-    border-radius: 50%;
+    width: 300px;
+    margin: 20px;
+    text-align: center;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease;
 }
-.social-icon a img {
-	width: 20px;
-	height: 20px;
-	margin: 0 10px;
-	transition: transform 0.3s ease, box-shadow 0.3s ease;
-	vertical-align: middle;
+
+.card img {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 50%;
+    margin-bottom: 10px;
 }
 
-.social-media .social-icon:hover {
-    transform: scale(1.1);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+.card p {
+    font-size: 1rem;
+    margin: 10px 0;
 }
 
-.external-links {
+.card .btn {
+    display: inline-block;
+    padding: 8px 15px;
+    background-color: #28a745;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+.card .btn:hover {
+    background-color: #218838;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+/* CTA Section */
+.section {
+    text-align: center;
+    padding: 50px 20px;
+    background-color: #f8f9fa;
+}
+
+.section h2 {
+    font-size: 2rem;
     margin-bottom: 20px;
 }
 
-.external-links ul {
-    list-style: none;
-    padding: 0;
+.section p {
+    font-size: 1.2rem;
+    margin-bottom: 20px;
 }
 
-.external-links ul li {
-    display: inline;
-    margin: 0 15px;
-}
-
-.external-links ul li a {
-    color: #fff;
+.section .btn {
+    padding: 10px 20px;
+    background-color: #28a745;
+    color: white;
     text-decoration: none;
-    font-size: 16px;
-    transition: color 0.3s ease;
+    border-radius: 5px;
+    font-size: 1.1rem;
 }
 
-.external-links ul li a:hover {
-    color: #1abc9c;
-    text-decoration: underline;
+.section .btn:hover {
+    background-color: #218838;
 }
 
-.footer-content p {
-    font-size: 14px;
-    color: #ccc;
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .hero-section h1, .hero-section1 h1 {
+        font-size: 2.5rem;
+    }
+
+    .hero-section p, .hero-section1 p {
+        font-size: 1rem;
+    }
+
+    .feature-section {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .feature-card {
+        width: 90%;
+    }
+
+    .card {
+        width: 90%;
+    }
 }
 
-.footer-content .social-media,
-.footer-content .external-links {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
+/* footer */
+footer {
+	text-align: center;
+	padding: 20px;
+	background-color: #333;
+	color: white;
+	margin-top: 20px;
 }
+

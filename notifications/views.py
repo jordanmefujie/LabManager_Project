@@ -33,3 +33,15 @@ def mark_as_read(request, notification_id):
     notification.read = True
     notification.save()
     return JsonResponse({"success": True})
+
+# Sample lab data (replace with database or API call)
+labs_data = [
+    {"name": "City Lab 1", "location": "New York"},
+    {"name": "City Lab 2", "location": "New York"},
+    {"name": "State Lab 1", "location": "San Francisco"},
+]
+
+def search_labs(request):
+    city = request.GET.get('city', '').lower()  # Get 'city' from the query string
+    results = [lab for lab in labs_data if city in lab['location'].lower()]
+    return JsonResponse({"labs": results})
