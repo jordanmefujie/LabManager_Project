@@ -113,8 +113,6 @@ gap: 1rem;
     color: orangered;
 }
 
-
-
 .container {
     max-width: 1200px;
     margin: 0 auto;
@@ -219,11 +217,13 @@ section {
 .intro p {
     font-size: 1.2rem;
     margin: 20px 0;
+    text color: #FFFFFF;
 }
 
 .intro .importance {
     font-weight: bold;
     font-size: 1.1rem;
+    text color: #FFFFFF;
 }
 
 /* Feature Section */
@@ -378,6 +378,64 @@ footer {
 	padding: 20px;
 	background-color: #333;
 	color: white;
-	margin-top: 20px;
+	margin-top: 10px;
+	height: 50px;
+}
+footer img {
+	}
+
+/* header style */
+.logo-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
 }
 
+.logo {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    width: 50px; /* Adjust as needed */
+    height: 50px; /* Adjust as needed */
+    border-radius: 50%;
+    animation: spin 5s linear infinite;
+    animation: rotateLogo 2s ease-in-out 1;
+}
+
+.logo-text {
+    margin-left: 10px;
+    color: antiquewhite;
+}
+  .img .logo_1 {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    width: 100px; /* Adjust as needed */
+    height: 100px; /* Adjust as needed */
+    border-radius: 50%;
+    animation: spin 5s linear infinite;
+}
+
+@keyframes spin rotateLogo {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+@keyframes rotateLogo {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+.logo {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    animation: rotateLogo 5s linear infinite; /* 2s duration, ease-in-out timing function, and 1 iteration */
+}
