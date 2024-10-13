@@ -1,6 +1,7 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 import requests
 from django.http import JsonResponse
+from .forms import LargeLabForm
 
 # Create your views here.
 # labs/views.py
@@ -29,3 +30,33 @@ def search_labs(request):
     except requests.RequestException as e:
         # Handle API call errors, e.g., network issues, bad response, etc.
         return JsonResponse({"error": str(e)}, status=500)
+
+def large_lab_form_view(request):
+    if request.method == 'POST':
+        form = LargeLabForm(request.POST)
+        if form.is_valid():
+            form.save()  # Saves to the database
+            return redirect('success_url')  # Change to the appropriate success URL
+    else:
+        form = LargeLabForm()
+    
+    return render(request, 'labs/large_form.html', {'form': form})
+
+def form_view(request):
+    if request.method == 'POST':
+        form = LargeLabForm(request.POST, request.FILES)  # Handle file uploads in the second form
+        if form.is_valid():
+            # process form data
+            form.save()
+    else:
+        form = LargeLabForm()
+    return render(request, 'labs/large_form.html', {'form': form})
+
+def large_form_view(request):
+    form = LargeLabForm()
+    if request.method == 'POST':
+        form = LargeLabForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('success_page')  # Adjust this for your actual success page
+    return render(request, 'labs/large_form.html', {'form': form})

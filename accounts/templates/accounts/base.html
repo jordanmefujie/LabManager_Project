@@ -118,6 +118,10 @@
     <!-- Content Block for Page-Specific Content -->
     <main>
         {% block content %}
+	<form action="{% url 'logout' %}" method="post" style="display: inline;">
+    {% csrf_token %}
+    <button type="submit">Logout</button>
+</form>
         {% endblock %}
     </main>
 	<!-- Footer -->
