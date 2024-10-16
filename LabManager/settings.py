@@ -51,7 +51,7 @@ INSTALLED_APPS = [
     'home',
     'labmanagement',
     'reports',
-    'settings',  # Consider renaming this to avoid confusion with Django settings
+    'settingss',  # Consider renaming this to avoid confusion with Django settings
     'links',     # Ensure consistent casing for app names
     'stores',
     'channels',

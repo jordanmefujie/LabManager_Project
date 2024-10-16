@@ -21,11 +21,11 @@ from blog import views
 from demo import views
 from dashboard import views
 from home import views
-from settings import views
+from settingss import views
 from accounts import views
 from labmanagement import views
 from reports import views
-from Links import views
+from links import views
 from stores import views
 from notifications import views
 from labs import views
@@ -53,8 +53,8 @@ path('dashboard/', include('dashboard.urls')),
 path('accounts/', include('django.contrib.auth.urls')),
 path('labmanagement/', include('labmanagement.urls')),  # Add this line
 path('reports/', include('reports.urls')),  # Add this line
-path('settings/', include('settings.urls')),  # Add this line
-path('Links/', include('Links.urls')),
+path('settingss/', include('settingss.urls')),  # Add this line
+path('links/', include('links.urls')),
 path('accounts/', include('accounts.urls')),
 # base url fo stores
 path('stores/', include('stores.urls')),
