@@ -16,27 +16,27 @@ import os
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/
+
+# Email settings
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-EMAIL_HOST = 'jordanmefujie@gmail.com'
+EMAIL_HOST = 'smtp.gmail.com'  # Correct the email host for SMTP
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
-EMAIL_HOST_USER = 'your-email@gmail.com'
-EMAIL_HOST_PASSWORD = 'email-password'
+EMAIL_HOST_USER = 'your-email@gmail.com'  # Replace with your actual email
+EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASSWORD')  # Use environment variable for security
 DEFAULT_FROM_EMAIL = 'webmaster@example.com'
+
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY')
-SECRET_KEY ='django-insecure-3hid_(e0(9b2u)0q_no2t2-23%khdqa*25^n2@5tf4m2z)9lkf'
+SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', 'django-insecure-3hid_(e0(9b2u)0q_no2t2-23%khdqa*25^n2@5tf4m2z)9lkf')  # Get secret key from environment
+
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = True  # Set to False in production
 
-ALLOWED_HOSTS = []
-
+ALLOWED_HOSTS = ['Jordanmefujie.pythonanywhere.com']
 
 # Application definition
-
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
@@ -51,8 +51,8 @@ INSTALLED_APPS = [
     'home',
     'labmanagement',
     'reports',
-    'settings',
-    'Links',
+    'settings',  # Consider renaming this to avoid confusion with Django settings
+    'links',     # Ensure consistent casing for app names
     'stores',
     'channels',
     'notifications',
@@ -91,10 +91,8 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'LabManager.wsgi.application'
 
-
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
-
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
@@ -102,10 +100,8 @@ DATABASES = {
     }
 }
 
-
 # Password validation
 # https://docs.djangoproject.com/en/5.0/ref/settings/#auth-password-validators
-
 AUTH_PASSWORD_VALIDATORS = [
     {
         'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
@@ -121,38 +117,30 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-
 # Internationalization
 # https://docs.djangoproject.com/en/5.0/topics/i18n/
-
 LANGUAGE_CODE = 'en-us'
-
 TIME_ZONE = 'UTC'
-
 USE_I18N = True
-
 USE_TZ = True
-
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.0/howto/static-files/
-
 STATIC_URL = 'static/'
 STATICFILES_DIRS = [BASE_DIR / "static"]
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
-
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-ASGI_APPLICATION = 'labmanager.asgi.application'
+ASGI_APPLICATION = 'LabManager.asgi.application'
 
 # Channels Layer Backend
 CHANNEL_LAYERS = {
     'default': {
         'BACKEND': 'channels_redis.core.RedisChannelLayer',
         'CONFIG': {
-            'hosts': [('127.0.0.1', 8000)],
+            'hosts': [('127.0.0.1', 6379)],
         },
     },
 }
